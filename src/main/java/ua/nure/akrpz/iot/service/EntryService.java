@@ -1,11 +1,11 @@
-package com.apz.iot.service;
+package ua.nure.akrpz.iot.service;
 
-import com.apz.iot.dao.BuildingDao;
-import com.apz.iot.dao.SensorDao;
-import com.apz.iot.model.Building;
-import com.apz.iot.model.Customer;
-import com.apz.iot.model.Sensor;
-import com.apz.iot.model.Worker;
+import ua.nure.akrpz.iot.dao.BuildingDao;
+import ua.nure.akrpz.iot.dao.SensorDao;
+import ua.nure.akrpz.iot.model.Building;
+import ua.nure.akrpz.iot.model.Customer;
+import ua.nure.akrpz.iot.model.Sensor;
+import ua.nure.akrpz.iot.model.Worker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.apz.iot.util;
+package ua.nure.akrpz.iot.util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;

@@ -1,4 +1,4 @@
-package com.apz.iot;
+package ua.nure.akrpz.iot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

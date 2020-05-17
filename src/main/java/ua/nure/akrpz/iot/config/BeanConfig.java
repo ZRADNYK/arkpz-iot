@@ -1,4 +1,4 @@
-package com.apz.iot;
+package ua.nure.akrpz.iot.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

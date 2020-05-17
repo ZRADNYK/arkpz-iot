@@ -1,9 +1,10 @@
-package com.apz.iot.controller;
+package ua.nure.akrpz.iot.controller;
 
-import com.apz.iot.model.Customer;
-import com.apz.iot.model.Worker;
-import com.apz.iot.service.EntryService;
-import com.apz.iot.util.RestTemplateUtil;
+import org.springframework.beans.factory.annotation.Value;
+import ua.nure.akrpz.iot.model.Customer;
+import ua.nure.akrpz.iot.model.Worker;
+import ua.nure.akrpz.iot.service.EntryService;
+import ua.nure.akrpz.iot.util.RestTemplateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
@@ -19,6 +20,9 @@ public class SensorController {
     private final RestTemplate restTemplate;
     private final EntryService entryService;
 
+    @Value("${backend-url}")
+    private String backendUrl;
+
     @Autowired
     public SensorController(RestTemplate restTemplate, EntryService entryService) {
         this.restTemplate = restTemplate;
@@ -30,7 +34,7 @@ public class SensorController {
         Customer customer = entryService.emulateCustomerEnter();
         HttpEntity<String> entity = RestTemplateUtil.createHttpEntity(customer);
 
-        restTemplate.exchange("http://localhost:8080/customers/enter", HttpMethod.POST, entity, ArrayList.class);
+        restTemplate.exchange(backendUrl + "/customers/enter", HttpMethod.POST, entity, ArrayList.class);
     }
 
     @Scheduled(fixedDelay = 4000)
@@ -38,7 +42,7 @@ public class SensorController {
         Customer customer = entryService.emulateCustomerExit();
         HttpEntity<String> entity = RestTemplateUtil.createHttpEntity(customer);
 
-        restTemplate.exchange("http://localhost:8080/customers/left", HttpMethod.POST, entity, HttpStatus.class);
+        restTemplate.exchange(backendUrl + "/customers/left", HttpMethod.POST, entity, HttpStatus.class);
     }
 
     @Scheduled(fixedDelay = 5000)
@@ -46,7 +50,7 @@ public class SensorController {
         Worker worker = entryService.emulateWorkerEnter();
         HttpEntity<String> entity = RestTemplateUtil.createHttpEntity(worker);
 
-        restTemplate.exchange("http://localhost:8080/workers/enter", HttpMethod.POST, entity, ArrayList.class);
+        restTemplate.exchange(backendUrl + "/workers/enter", HttpMethod.POST, entity, ArrayList.class);
     }
 
     @Scheduled(fixedDelay = 10000)
@@ -54,6 +58,6 @@ public class SensorController {
         Worker worker = entryService.emulateWorkerExit();
         HttpEntity<String> entity = RestTemplateUtil.createHttpEntity(worker);
 
-        restTemplate.exchange("http://localhost:8080/workers/left", HttpMethod.POST, entity, ArrayList.class);
+        restTemplate.exchange(backendUrl + "/workers/left", HttpMethod.POST, entity, ArrayList.class);
     }
 }

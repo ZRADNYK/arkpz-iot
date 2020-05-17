@@ -1,6 +1,6 @@
-package com.apz.iot.dao;
+package ua.nure.akrpz.iot.dao;
 
-import com.apz.iot.model.Sensor;
+import ua.nure.akrpz.iot.model.Sensor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

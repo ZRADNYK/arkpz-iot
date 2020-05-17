@@ -9,9 +9,9 @@
         <version>2.2.2.RELEASE</version>
     </parent>
     <groupId>com.apz</groupId>
-    <artifactId>demo-back</artifactId>
+    <artifactId>demo-iot</artifactId>
     <version>0.0.2-SNAPSHOT</version>
-    <name>demo-back</name>
+    <name>demo-iot</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
